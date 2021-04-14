@@ -23,6 +23,8 @@ namespace CrispyEureka.MarketDataConnector.Jobs
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            await _producer.InitializeExchange();
+            
             while (!stoppingToken.IsCancellationRequested)
             {
                 var stopwatch = Stopwatch.StartNew();

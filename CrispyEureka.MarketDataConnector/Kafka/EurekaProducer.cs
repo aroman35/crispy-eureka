@@ -15,6 +15,7 @@ namespace CrispyEureka.MarketDataConnector.Kafka
         private readonly IProducer<string, TransferMessage<TMessagePayload>> _producer;
         private readonly ICacheManager<TMessagePayload> _cacheManager;
         private readonly ProducerSettings _producerSettings;
+        private readonly IKafkaManager _kafkaManager;
         private readonly ILogger<EurekaProducer<TMessagePayload>> _logger;
         
         private int _currentBatchSize;
@@ -23,11 +24,13 @@ namespace CrispyEureka.MarketDataConnector.Kafka
             ICacheManager<TMessagePayload> cacheManager,
             ProducerSettings<TMessagePayload> producerSettings,
             KafkaSettings kafkaSettings,
-            ILogger<EurekaProducer<TMessagePayload>> logger)
+            ILogger<EurekaProducer<TMessagePayload>> logger,
+            IKafkaManager kafkaManager)
         {
             _cacheManager = cacheManager;
             _producerSettings = producerSettings;
             _logger = logger;
+            _kafkaManager = kafkaManager;
 
             var producerConfig = new ProducerConfig
             {
@@ -42,6 +45,11 @@ namespace CrispyEureka.MarketDataConnector.Kafka
                 .SetErrorHandler((_, error) => _logger.LogError(error.Reason))
                 .SetLogHandler((_, logMessage) => _logger.Log((LogLevel)logMessage.LevelAs(LogLevelType.MicrosoftExtensionsLogging), logMessage.Message))
                 .Build();
+        }
+
+        public async Task InitializeExchange()
+        {
+            await _kafkaManager.InitTopic(_producerSettings.TopicName);
         }
         
         public async Task StartProducingJob(CancellationToken cancellationToken)

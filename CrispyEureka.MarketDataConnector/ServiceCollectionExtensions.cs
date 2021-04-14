@@ -33,9 +33,12 @@ namespace CrispyEureka.MarketDataConnector
             services.ConfigureSettings<KafkaSettings>(configuration.GetSection(nameof(KafkaSettings)));
             services.ConfigureSettings<RedisSettings>(configuration.GetSection(nameof(RedisSettings)));
             services.ConfigureSettings<TinkoffSettings>(configuration.GetSection(nameof(TinkoffSettings)));
+            services.ConfigureSettings<MarketDataLoadSettings>(configuration.GetSection(nameof(MarketDataLoadSettings)));
             services.AddTransient<ISerializer, ProtobufSerializer>();
             services.AddTransient<IConnectionMultiplexer>(provider =>
                 ConnectionMultiplexer.Connect(provider.GetRequiredService<RedisSettings>().ConnectionString));
+            services.AddSingleton<IKafkaManager, KafkaManager>();
+            services.AddSingleton<TinkoffConnector.TinkoffConnector>();
 
             return services;
         }

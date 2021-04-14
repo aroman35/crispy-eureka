@@ -30,6 +30,14 @@ namespace CrispyEureka.MarketDataConnector.TinkoffConnector
             _context = _connection.Context;
         }
 
+        public async Task<string> GetFigiByTicker(string ticker)
+        {
+            var searchList = await _context.MarketSearchByTickerAsync(ticker);
+            
+            var instrument = searchList.Instruments.First();
+            return instrument.Figi;
+        }
+        
         public async Task OrderBookSubscribe(string figi, int depth = 20)
         {
             await _context.SendStreamingRequestAsync(new StreamingRequest.OrderbookSubscribeRequest(figi, depth));
