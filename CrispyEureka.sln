@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeus.Sandbox", "Zeus.Sandbox\Zeus.Sandbox.csproj", "{AC26DA04-B7A1-4754-B082-C67B17021E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.Domain", "CrispyEureka.Domain\CrispyEureka.Domain.csproj", "{55407B2D-B083-4F85-B98A-0149AC93A40E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.Persistence", "CrispyEureka.Persistence\CrispyEureka.Persistence.csproj", "{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.Application", "CrispyEureka.Application\CrispyEureka.Application.csproj", "{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.MarketDataConnector", "CrispyEureka.MarketDataConnector\CrispyEureka.MarketDataConnector.csproj", "{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09659F53-BC55-47C2-A290-1E771B8D7177}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC26DA04-B7A1-4754-B082-C67B17021E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC26DA04-B7A1-4754-B082-C67B17021E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC26DA04-B7A1-4754-B082-C67B17021E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC26DA04-B7A1-4754-B082-C67B17021E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55407B2D-B083-4F85-B98A-0149AC93A40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55407B2D-B083-4F85-B98A-0149AC93A40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55407B2D-B083-4F85-B98A-0149AC93A40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55407B2D-B083-4F85-B98A-0149AC93A40E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+		{55407B2D-B083-4F85-B98A-0149AC93A40E} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+		{A6C2E6AF-DD94-41A6-A381-0029A9FA74AE} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+		{4BE6A0BD-96FA-439F-AC0D-69AB43992E8C} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+		{AC26DA04-B7A1-4754-B082-C67B17021E68} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+	EndGlobalSection
+EndGlobal
