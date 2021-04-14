@@ -6,11 +6,24 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="1.6.3" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+        <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+        <PackageReference Include="StackExchange.Redis.Extensions.Protobuf" Version="6.4.5" />
+        <PackageReference Include="System.Linq.Async" Version="5.0.0" />
+        <PackageReference Include="Tinkoff.Trading.OpenApi" Version="1.7.3" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\CrispyEureka.Application\CrispyEureka.Application.csproj" />
+      <ProjectReference Include="..\CrispyEureka.Common\CrispyEureka.Common.csproj" />
       <ProjectReference Include="..\CrispyEureka.Persistence\CrispyEureka.Persistence.csproj" />
+      <ProjectReference Include="..\CrispyEureka.Transfer\CrispyEureka.Transfer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.Development.json">
+        <DependentUpon>appsettings.json</DependentUpon>
+      </Content>
     </ItemGroup>
 </Project>
