@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CrispyEureka.Application.Commands.MarketData;
 using CrispyEureka.Application.Commands.MarketData.Candles;
 using CrispyEureka.Domain.MarketData.Candle;
 using CrispyEureka.Persistence.Models;
@@ -14,7 +15,7 @@ using Polly;
 
 namespace CrispyEureka.Persistence.CommandHandlers.AddCandles
 {
-    public class AddCandlesHandler : IRequestHandler<AddCandlesCommand>
+    public class AddCandlesHandler : IRequestHandler<AddMarketData<Candle>>
     {
         private readonly DbContext<Candle> _dbContext;
         private readonly IMapper _mapper;
@@ -30,9 +31,9 @@ namespace CrispyEureka.Persistence.CommandHandlers.AddCandles
             _logger = logger;
         }
 
-        public async Task<Unit> Handle(AddCandlesCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(AddMarketData<Candle> request, CancellationToken cancellationToken)
         {
-            var candles = _mapper.Map<IEnumerable<CandleDto>>(request.Candles.OrderBy(x => x)).ToList();
+            var candles = _mapper.Map<IEnumerable<CandleDto>>(request.Messages.OrderBy(x => x)).ToList();
             var minTimestamp = candles.Min(x => x.Timestamp);
             var maxTimestamp = candles.Max(x => x.Timestamp);
 

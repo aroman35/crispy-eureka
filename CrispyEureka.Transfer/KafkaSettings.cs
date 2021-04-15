@@ -1,6 +1,6 @@
 ﻿using Confluent.Kafka;
 
-namespace CrispyEureka.MarketDataConnector.Kafka
+namespace CrispyEureka.Transfer
 {
     public class KafkaSettings
     {

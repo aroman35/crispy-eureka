@@ -40,6 +40,9 @@ namespace CrispyEureka.MarketDataConnector
             services.AddSingleton<IKafkaManager, KafkaManager>();
             services.AddSingleton<TinkoffConnector.TinkoffConnector>();
 
+            services.AddHostedService<OrderBookLoader>();
+            services.AddHostedService<CandlesLoader>();
+
             return services;
         }
     }

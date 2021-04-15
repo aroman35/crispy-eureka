@@ -2,17 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <UserSecretsId>dotnet-Zues.MarketDataConnector-0CEB937D-F7DA-4B1F-AFAA-17EBD8DD1726</UserSecretsId>
+        <UserSecretsId>dotnet-CrispyEureka.MarketDataConsumer-9ACE2171-0B48-4710-BE91-292737655831</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Confluent.Kafka" Version="1.6.3" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-        <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
-        <PackageReference Include="StackExchange.Redis.Extensions.Protobuf" Version="6.4.5" />
-        <PackageReference Include="System.Linq.Async" Version="5.0.0" />
-        <PackageReference Include="Tinkoff.Trading.OpenApi" Version="1.7.3" />
     </ItemGroup>
 
     <ItemGroup>

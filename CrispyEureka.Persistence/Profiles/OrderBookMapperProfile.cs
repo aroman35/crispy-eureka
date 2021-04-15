@@ -21,6 +21,14 @@ namespace CrispyEureka.Persistence.Profiles
                 .ForMember(
                     x => x.Figi,
                     config => config.MapFrom(x => x.Figi));
+
+            CreateMap<OrderBookEntry, OrderBookEntryDto>()
+                .ForMember(
+                    x => x.Price,
+                    context => context.MapFrom(x => x.Price))
+                .ForMember(
+                    x => x.Quantity,
+                    context => context.MapFrom(x => x.Quantity));
         }
     }
 }

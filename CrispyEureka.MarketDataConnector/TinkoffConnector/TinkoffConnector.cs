@@ -50,6 +50,28 @@ namespace CrispyEureka.MarketDataConnector.TinkoffConnector
             _context.StreamingEventReceived += CandleEventReceived;
         }
 
+        public async Task LoadTodayCandles(string figi)
+        {
+            var candleList = await _context.MarketCandlesAsync(figi, DateTime.UtcNow.Date, DateTime.UtcNow, CandleInterval.Minute);
+            foreach (var candlePayload in candleList.Candles)
+            {
+                var candle = new CandleTransferModel
+                {
+                    Figi = candlePayload.Figi,
+                    Timestamp = candlePayload.Time.Ticks,
+                    Interval = (int) candlePayload.Interval,
+                    Open = candlePayload.Open,
+                    Close = candlePayload.Close,
+                    High = candlePayload.High,
+                    Low = candlePayload.Low,
+                    Volume = candlePayload.Volume
+                };
+                
+                _candlesCache.AddMessage(candle);
+                _logger.LogInformation($"Sent candle {candle.Figi}:{candlePayload.Time:s}");
+            }
+        }
+
         private void OrderBookEventReceived(object sender, StreamingEventReceivedEventArgs e)
         {
             if (e.Response is not OrderbookResponse orderBookResponse) return;

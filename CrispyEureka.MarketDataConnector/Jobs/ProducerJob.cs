@@ -30,7 +30,7 @@ namespace CrispyEureka.MarketDataConnector.Jobs
                 var stopwatch = Stopwatch.StartNew();
                 await _producer.StartProducingJob(stoppingToken);
                 stopwatch.Stop();
-                _logger.LogInformation($"Operation took {stopwatch.Elapsed:g}");
+                _logger.LogTrace($"Operation took {stopwatch.Elapsed:g}");
             }
         }
     }

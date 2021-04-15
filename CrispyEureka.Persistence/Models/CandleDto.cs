@@ -14,14 +14,14 @@ namespace CrispyEureka.Persistence.Models
         public decimal High { get; set; }
         public decimal Low { get; set; }
         public decimal Volume { get; set; }
-        public DateTime Timestamp { get; set; }
-        public Interval Interval { get; set; }
+        public long Timestamp { get; set; }
+        public int Interval { get; set; }
         public string Figi { get; set; }
         public Guid Id { get; private set; }
         
         public Candle ToRoot()
         {
-            var candle = new Candle(Open, Close, High, Low, Volume, Timestamp, Interval, Figi);
+            var candle = new Candle(Open, Close, High, Low, Volume, new DateTime(Timestamp), (Interval)Interval, Figi);
             return candle;
         }
     }

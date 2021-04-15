@@ -15,7 +15,10 @@ namespace CrispyEureka.MarketDataConnector.Jobs
         private readonly ILogger<CandlesLoader> _logger;
         private readonly MarketDataLoadSettings _dataLoadSettings;
 
-        public CandlesLoader(TinkoffConnector.TinkoffConnector connector, ILogger<CandlesLoader> logger, MarketDataLoadSettings dataLoadSettings)
+        public CandlesLoader(
+            TinkoffConnector.TinkoffConnector connector,
+            ILogger<CandlesLoader> logger,
+            MarketDataLoadSettings dataLoadSettings)
         {
             _connector = connector;
             _logger = logger;
@@ -27,6 +30,7 @@ namespace CrispyEureka.MarketDataConnector.Jobs
             var figiesList = await GetFigies(2000, stoppingToken).ToArrayAsync(stoppingToken);
             foreach (var figi in figiesList)
             {
+                await _connector.LoadTodayCandles(figi);
                 await _connector.CandlesSubscribe(figi);
             }
 

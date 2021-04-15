@@ -6,6 +6,11 @@ namespace CrispyEureka.Transfer
     public class TransferMessage<TPayload>
         where TPayload : IMessagePayload
     {
+        protected TransferMessage()
+        {
+            
+        }
+        
         public TransferMessage(string key, TPayload payload)
         {
             Key = key;

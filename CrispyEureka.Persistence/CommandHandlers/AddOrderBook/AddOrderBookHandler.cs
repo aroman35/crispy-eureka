@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CrispyEureka.Application.Commands.MarketData;
 using CrispyEureka.Domain.MarketData.OrderBook;
 using CrispyEureka.Persistence.Models;
 using MediatR;
@@ -11,7 +12,7 @@ using Polly;
 
 namespace CrispyEureka.Persistence.CommandHandlers.AddOrderBook
 {
-    public class AddOrderBookHandler : IRequestHandler<Application.Commands.MarketData.OrderBook.AddOrderBookCommand>
+    public class AddOrderBookHandler : IRequestHandler<AddMarketData<OrderBook>>
     {
         private readonly DbContext<OrderBook> _dbContext;
         private readonly IMapper _mapper;
@@ -27,9 +28,9 @@ namespace CrispyEureka.Persistence.CommandHandlers.AddOrderBook
             _logger = logger;
         }
 
-        public async Task<Unit> Handle(Application.Commands.MarketData.OrderBook.AddOrderBookCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(AddMarketData<OrderBook> request, CancellationToken cancellationToken)
         {
-            var orderBookDtos = _mapper.Map<IEnumerable<OrderBookDto>>(request.OrderBooks);
+            var orderBookDtos = _mapper.Map<IEnumerable<OrderBookDto>>(request.Messages);
 
             var insertResult = await Policy.Handle<Exception>()
                 .WaitAndRetryAsync(5, _ => TimeSpan.FromMilliseconds(100))

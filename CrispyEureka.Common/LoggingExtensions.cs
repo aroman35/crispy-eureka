@@ -25,7 +25,7 @@ namespace CrispyEureka.Common
         private static void BuildDevelopmentLog(this LoggerConfiguration loggerConfiguration)
         {
             loggerConfiguration
-                .MinimumLevel.Verbose()
+                .MinimumLevel.Information()
                 .WriteTo.Debug()
                 .Enrich.FromLogContext()
                 .WriteTo.Console();

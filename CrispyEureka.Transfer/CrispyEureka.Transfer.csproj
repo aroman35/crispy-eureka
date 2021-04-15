@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="10.1.1" />
         <PackageReference Include="Confluent.Kafka" Version="1.6.3" />
         <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
         <PackageReference Include="StackExchange.Redis.Extensions.Protobuf" Version="6.4.5" />
