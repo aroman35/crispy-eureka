@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.Common", "Cris
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.MarketDataConsumer", "CrispyEureka.MarketDataConsumer\CrispyEureka.MarketDataConsumer.csproj", "{5CBB8B05-D16D-4FA2-8B1C-9D658EE3D4A6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{52E61607-F4FD-4A86-AE22-17C7BF581F56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyEureka.Testing.Domain", "CrispyEureka.Testing.Domain\CrispyEureka.Testing.Domain.csproj", "{1580D84B-7512-4D76-B5B4-35B240565004}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{5CBB8B05-D16D-4FA2-8B1C-9D658EE3D4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBB8B05-D16D-4FA2-8B1C-9D658EE3D4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBB8B05-D16D-4FA2-8B1C-9D658EE3D4A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1580D84B-7512-4D76-B5B4-35B240565004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1580D84B-7512-4D76-B5B4-35B240565004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1580D84B-7512-4D76-B5B4-35B240565004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1580D84B-7512-4D76-B5B4-35B240565004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D7B9B0CE-951D-4F20-A57F-6E32EFFE1CF5} = {09659F53-BC55-47C2-A290-1E771B8D7177}
@@ -66,5 +74,6 @@ Global
 		{199DE4FE-1373-4D09-92CC-ED0842FC229B} = {09659F53-BC55-47C2-A290-1E771B8D7177}
 		{2146A869-475D-4BFF-AB0B-0B378F36D349} = {09659F53-BC55-47C2-A290-1E771B8D7177}
 		{5CBB8B05-D16D-4FA2-8B1C-9D658EE3D4A6} = {09659F53-BC55-47C2-A290-1E771B8D7177}
+		{1580D84B-7512-4D76-B5B4-35B240565004} = {52E61607-F4FD-4A86-AE22-17C7BF581F56}
 	EndGlobalSection
 EndGlobal

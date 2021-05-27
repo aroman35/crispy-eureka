@@ -1,7 +1,9 @@
 ﻿namespace CrispyEureka.Domain.Trading
 {
-    public class Currency
+    public enum Currency
     {
-        
+        RUB,
+        USD,
+        EUR
     }
 }

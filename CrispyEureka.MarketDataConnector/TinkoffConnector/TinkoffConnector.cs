@@ -40,6 +40,8 @@ namespace CrispyEureka.MarketDataConnector.TinkoffConnector
         
         public async Task OrderBookSubscribe(string figi, int depth = 20)
         {
+            var orders = await _context.OrdersAsync();
+            var order = orders.First();
             await _context.SendStreamingRequestAsync(new StreamingRequest.OrderbookSubscribeRequest(figi, depth));
             _context.StreamingEventReceived += OrderBookEventReceived;
         }
