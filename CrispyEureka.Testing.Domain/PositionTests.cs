@@ -208,10 +208,11 @@ namespace CrispyEureka.Testing.Domain
 
             position.IsOpened.ShouldBeTrue();
             position.TotalLots.ShouldBe(190);
-            // position.Average.ShouldBeNull();
-            // position.Price.ShouldBeNull();
-            // position.NotRealisedPnl(140.0m).ShouldBeNull();
-            // position.RealisedPnl.ShouldBe(7400.0m);
+            position.Average.ShouldNotBeNull();
+            Math.Round(position.Average.Value, 6).ShouldBe(105.263158m); //105.26315789473684210526315789
+            position.Price.ShouldBe(20000.0m);
+            position.NotRealisedPnl(140.0m).ShouldBe(6600.0m);
+            position.RealisedPnl.ShouldBe(-20000.0m);
             
             OutputOrdersMap(position);
         }
@@ -219,7 +220,7 @@ namespace CrispyEureka.Testing.Domain
         private void OutputOrdersMap(Position position)
         {
             _testOutputHelper.WriteLine("Orders map:");
-            foreach (var positionOrder in position.Orders.Where(x => x.Status == OrderStatus.PartiallyFill || x.Status == OrderStatus.Fill))
+            foreach (var positionOrder in position.Orders.Where(x => x.Status is OrderStatus.PartiallyFill or OrderStatus.Fill))
             {
                 _testOutputHelper.WriteLine(positionOrder.ToString());
             }

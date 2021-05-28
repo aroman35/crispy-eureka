@@ -26,10 +26,10 @@ namespace CrispyEureka.Domain.Trading
         public Currency Currency { get; }
         public ICollection<Order> Orders { get; }
         private IEnumerable<Order> ExecutedBuyOrders => Orders.Where(x =>
-            x.Operation == OperationType.Buy && (x.Status == OrderStatus.Fill || x.Status == OrderStatus.PartiallyFill));
+            x.Operation == OperationType.Buy && (x.Status is OrderStatus.Fill or OrderStatus.PartiallyFill));
         
         private IEnumerable<Order> ExecutedSellOrders => Orders.Where(x =>
-            x.Operation == OperationType.Sell && (x.Status == OrderStatus.Fill || x.Status == OrderStatus.PartiallyFill));
+            x.Operation == OperationType.Sell && (x.Status is OrderStatus.Fill or OrderStatus.PartiallyFill));
         
         public int TotalLots => ExecutedBuyOrders.Sum(x => x.ExecutedLots) - ExecutedSellOrders.Sum(x => x.ExecutedLots);
 
