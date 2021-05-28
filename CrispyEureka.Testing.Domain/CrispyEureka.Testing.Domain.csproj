@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CrispyEureka.Common\CrispyEureka.Common.csproj" />
       <ProjectReference Include="..\CrispyEureka.Domain\CrispyEureka.Domain.csproj" />
     </ItemGroup>
 

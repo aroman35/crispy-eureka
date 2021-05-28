@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using CrispyEureka.Common;
 using CrispyEureka.Domain.Trading;
 using Shouldly;
 using Xunit;
@@ -179,6 +180,39 @@ namespace CrispyEureka.Testing.Domain
             position.NotRealisedPnl(140.0m).ShouldBeNull();
             position.RealisedPnl.ShouldBe(6400.0m);
 
+            OutputOrdersMap(position);
+        }
+
+        [Fact(DisplayName = "Opened long half-filled position. Pnl not realised")]
+        public void OpenedMultipleLongHalfFilledPositionsTest()
+        {
+            var position = Mocks.EmptyPosition();
+
+            var newOrders = new[]
+            {
+                Mocks.CreateLongOrder(100.0m, 100), // 10 000
+                Mocks.CreateLongOrder(110.0m, 80), // 8 800
+                Mocks.CreateLongOrder(120.0m, 50) // 6 000
+            };
+            newOrders.ForEach(order => position.Add(order));
+            
+            var closingOrders = new[]
+            {
+                Mocks.ClosePartial(newOrders[0], 75),
+                Mocks.ClosePartial(newOrders[0], 25),
+                Mocks.ClosePartial(newOrders[1], 79),
+                Mocks.ClosePartial(newOrders[1], 1),
+                Mocks.ClosePartial(newOrders[2], 10) // 40x120.0m Not filled
+            };
+            closingOrders.ForEach(order => position.Add(order));
+
+            position.IsOpened.ShouldBeTrue();
+            position.TotalLots.ShouldBe(190);
+            // position.Average.ShouldBeNull();
+            // position.Price.ShouldBeNull();
+            // position.NotRealisedPnl(140.0m).ShouldBeNull();
+            // position.RealisedPnl.ShouldBe(7400.0m);
+            
             OutputOrdersMap(position);
         }
 
