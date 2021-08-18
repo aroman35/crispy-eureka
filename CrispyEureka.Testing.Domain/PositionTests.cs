@@ -207,7 +207,7 @@ namespace CrispyEureka.Testing.Domain
             closingOrders.ForEach(order => position.Add(order));
 
             position.IsOpened.ShouldBeTrue();
-            position.TotalLots.ShouldBe(190);
+            position.TotalLots.ShouldBe(190);  
             position.Average.ShouldNotBeNull();
             Math.Round(position.Average.Value, 6).ShouldBe(105.263158m); //105.26315789473684210526315789
             position.Price.ShouldBe(20000.0m);
